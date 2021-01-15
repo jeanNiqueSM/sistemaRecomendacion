@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Recomendación
+{% endblock %}
+
+{% block heading %}
+    Recomendación
+{% endblock %}
+
+{% block content %}
+    {% if list_rec %}
+
+    <p>Los recursos recomendados para el usuario {{ id_usuario }}:</p>
+
+    <table class="table">
+        <thead class="thead-light">
+         <tr>
+             <th scope="col">Rank</th>
+             <th scope="col">Nombre</th>
+             <th scope="col">Categoria</th>
+             <th scope="col">Url</th>
+         </tr>
+        </thead>
+
+        <tbody>
+        {% for recurso in list_rec %}
+            <tr>
+                <th scope="row">{{ list_rec.index(recurso) + 1}} </th>
+                <td>{{ recurso[4] }}</td>
+                <td>{{ recurso[1] }}</td>
+                <td><a href="{{ recurso[5] }}">{{ recurso[5] }}</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+    {% else %}
+        <p>Para la recomendación, debe registrarse</p>
+    {% endif %}
+    <a class="btn btn-primary" href="/" role="button">Regresar</a>
+{% endblock %}
