@@ -234,25 +234,10 @@ def hacer_recomendaciones(user, nmro_recom):
         mi_list = recursos_copy[recursos_copy['recurso_id'] == id_rec].reset_index(drop=True).values[0].tolist()
         lista_recursos.append(mi_list)
 
-    print("lista final", lista_recursos)
+    #print("lista final", lista_recursos)
 
     return lista_recursos
 
-
-# In[14]:
-
-
-# Recomendaciones Top: 
-#mis_rec = hacer_recomendaciones('128')
-#print('*'*100)
-#print(mis_rec)
-#def datos_recursos(list_rec):
-#    lista_recursos = []
-#    for i in range(len(list_rec)):
-#        id_rec = recursos_modelado[(recursos_modelado['titulo']==mis_rec[i])]['recurso_id'].values[0]
-#        mi_list = recursos_copy[recursos_copy['recurso_id'] == id_rec].reset_index(drop=True).values[0].tolist()
-#        lista_recursos.append(mi_list)
-#    return lista_recursos
-
-
-
+def lista_usuarios():
+    list_id_usuarios = list(pivot_table.index)
+    return list_id_usuarios

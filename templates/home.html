@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Inicio - Sistema Recomendación
+    Inicio
 {% endblock %}
 
 {% block heading %}
@@ -11,17 +11,24 @@
 
 {%  block content %}
 
+    {% if 'user' in session %}
     <div class="row">
       <div class="col-sm-3">
         <form action="/recomendacion" method="POST">
           <div class="form-group">
-            <label for="formGroupExampleInput">Ingrese ID de usuario</label>
-            <input type="text" class="form-control" name="id_usuario" placeholder="Id Usuario">
+            <label for="exampleFormControlSelect1">ID de usuario</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="id_usuario" required>
+              <option></option>
+              {% for user in usuarios %}
+              <option>{{ user }}</option>
+              {% endfor %}
+            </select>
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput">Número de recursos</label>
-            <input type="number" class="form-control" name="nmro_recursos" min="1" max="20">
+            <input type="number" class="form-control" name="nmro_recursos" min="1" max="20" required>
           </div>
+          <br>
           <div class="form-group">
            <button class="btn btn-primary" type="submit">Recomendar</button>
           </div>
@@ -29,40 +36,9 @@
       </div>
     </div>
 
+    {% else %}
+        <p>Para usar el sistema debe iniciar sesión</p>
 
-    {% if curso %}
-    <table class="table">
-        <thead class="thead-light">
-         <tr>
-             <th scope="col">#</th>
-             <th scope="col">Nombre</th>
-             <th scope="col">Categoria</th>
-             <th scope="col">Url</th>
-         </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>
     {% endif %}
-
-    <p>{{ data }}</p>
 
 {% endblock %}
