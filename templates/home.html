@@ -17,10 +17,10 @@
         <form action="/recomendacion" method="POST">
           <div class="form-group">
             <label for="exampleFormControlSelect1">ID de usuario</label>
-            <select class="form-control" id="exampleFormControlSelect1" name="id_usuario" required>
+            <select class="form-control" name="id_usuario" required>
               <option></option>
-              {% for user in usuarios %}
-              <option>{{ user }}</option>
+              {% for usuario in usuarios %}
+              <option>{{ usuario }}</option>
               {% endfor %}
             </select>
           </div>

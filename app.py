@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from modulo_sr import hacer_recomendaciones, lista_usuarios
 from forms import SignUpForm, LoginForm
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
 
 """Information regarding the Users in the System."""
@@ -53,7 +53,7 @@ def login():
             return render_template("login.html", form = form, message = "Email o contraseña. Intente nuevamente.")
         else:
             session['user'] = user
-            return render_template("home.html", message = "Inicio de Sesión exitoso!")
+            return redirect(url_for('home', _scheme='', _external=True))
     return render_template("login.html", form = form)
 
 @app.route("/logout")
