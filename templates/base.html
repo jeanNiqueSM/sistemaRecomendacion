@@ -25,7 +25,7 @@
 <body>
     <nav class="navbar navbar-dark bg-primary navbar-expand-sm">
       <a class="navbar-brand" href="#">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/logo_white.png" width="30" height="30" alt="logo">
+        <img src="../static/logo_sm.svg" width="30" height="30" alt="logo">
         SISTEMA DE RECOMENDACIÓN EDUCATIVO
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-5" aria-controls="navbar-list-5" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,11 +37,14 @@
             <a class="nav-link" href="{{ url_for('home') }}">Inicio</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('about') }}">Acerca de</a>
+            <a class="nav-link" href="{{ url_for('about') }}">Nosotros</a>
           </li>
           {% if 'user' in session %}
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url_for('logout') }}">Salir</a>
+            <a class="nav-link">Bienvenido {{ session['user']['full_name'] }}</a>
+          </li>
+          <li class="nav-item active">
+              <a class="btn btn-success" href="{{url_for('logout')}}" role="button">Salir</a>
           </li>
           {% else %}
           <li class="nav-item active">

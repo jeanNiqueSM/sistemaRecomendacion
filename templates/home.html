@@ -26,7 +26,7 @@
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput">Número de recursos</label>
-            <input type="number" class="form-control" name="nmro_recursos" min="1" max="20" required>
+            <input type="number" class="form-control" name="nmro_recursos" min="1" max="20" value="5" required>
           </div>
           <br>
           <div class="form-group">
@@ -37,7 +37,13 @@
     </div>
 
     {% else %}
-        <p>Para usar el sistema debe iniciar sesión</p>
+
+      <center>
+        <p>BIENVENIDO AL SISTEMA DE RECOMENDACIÓN PARA USAR EL SISTEMA, DEBE DE INICIAR SESIÓN</p>
+        <img src="/static/bg_sr.jpg" align="center" alt="grafico_sistema">
+      </center>
+
+
 
     {% endif %}
 
